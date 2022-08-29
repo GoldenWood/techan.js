@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(d3_select, d3_event, d3_mouse, d3_dispatch, accessor_crosshair, plot, plotMixin) { // Injected dependencies
+module.exports = function(d3_mouse, d3_dispatch, accessor_crosshair, plot, plotMixin) { // Injected dependencies
   return function() { // Closure function
     var p = {},  // Container for private, direct access mixed in variables
         dispatcher = d3_dispatch('enter', 'out', 'move'),
@@ -61,9 +61,9 @@ module.exports = function(d3_select, d3_event, d3_mouse, d3_dispatch, accessor_c
 
     function mousemoveRefresh(selection, pathVerticalSelection, pathHorizontalSelection,
                               xAnnotationSelection, yAnnotationSelection) {
-      return function() {
+      return function(e) {
         // Cache coordinates past this mouse move
-        selection.node().__coord__ = d3_mouse(this);
+        selection.node().__coord__ = d3_mouse(e);
         refresh(selection, pathVerticalSelection, pathHorizontalSelection, xAnnotationSelection, yAnnotationSelection);
       };
     }
