@@ -60,7 +60,7 @@ bower install --save techan
 Cloning and building the base project:
 
 ```shell
-git clone https://github.com/andredumas/techan.js.git
+git clone https://github.com/GoldenWood/techan.js.git
 cd techan.js
 npm install
 
@@ -75,10 +75,26 @@ grunt
 Cloning the project with all examples and usage:
 
 ```shell
-git clone --recursive https://github.com/andredumas/techan.js.git
+git clone --recursive https://github.com/GoldenWood/techan.js.git
 cd techan.js
 npm install
+#or npm install --legacy-peer-deps
 npm start
+```
+
+if ERROR you need install PhantomJS
+```shell
+sudo apt-get update
+sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
+sudo apt-get install libfreetype6 libfreetype6-dev -y
+sudo apt-get install libfontconfig1 libfontconfig1-dev -y
+cd ~
+export PHANTOM_JS="phantomjs-2.1.1-linux-x86_64"
+wget https://github.com/Medium/phantomjs/releases/download/v2.1.1/$PHANTOM_JS.tar.bz2
+sudo tar xvjf $PHANTOM_JS.tar.bz2
+sudo mv $PHANTOM_JS /usr/local/share
+sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+phantomjs --version
 ```
 
 Once running browse to [http://localhost:8000/examples/](http://localhost:8000/examples/) to see examples using the remote
